@@ -1,0 +1,11 @@
+# Serena MCP Server files
+# Contains analyzed project context and memory files
+.serena/memory/
+.serena/cache/
+.serena/temp/
+.serena/*.db
+.serena/*.sqlite
+.serena/*.log
+
+# Keep project configuration but ignore generated files
+!.serena/project.yml

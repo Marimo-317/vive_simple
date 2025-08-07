@@ -49,9 +49,16 @@ This is the `vive_simple` project. Please analyze the codebase structure and det
 - Lint: `npm run lint` (if applicable)
 - Type check: `npm run typecheck` (if applicable)
 
+## Serena Integration
+- **Serena MCP Server**: Integrated via Claude Code MCP for enhanced semantic code analysis
+- **Configuration**: Project-specific settings in `.serena/project.yml`
+- **Purpose**: Provides intelligent context retrieval and semantic understanding of the codebase
+- **Setup**: Automatically configured with `claude mcp add serena -- uvx --from git+https://github.com/oraios/serena serena-mcp-server`
+
 ## Notes for Claude
 - Always examine the existing codebase before making changes
 - Look for package.json, requirements.txt, or other dependency files to understand the tech stack
 - Check for existing patterns and conventions in similar files
 - Ask for clarification if the request is ambiguous
 - Prioritize code quality and maintainability over speed
+- Serena should provide enhanced project context and semantic analysis capabilities

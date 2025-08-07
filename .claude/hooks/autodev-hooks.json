@@ -1,0 +1,162 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "^/autodev-init",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/init-autodev-init.js",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "^/autodev-requirements",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/init-autodev-requirements.js",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "^/autodev-design",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/init-autodev-design.js",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "^/autodev-tasks",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/init-autodev-tasks.js",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "^/autodev-approve-spec",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/process-spec-approval.js",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "^/autodev-spec",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/init-autodev-spec.js",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "^/autodev-plan",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/init-autodev-plan.js",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "^/autodev-execute",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/init-autodev-execute.js",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "^/autodev-approve",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/process-approval.js",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command", 
+            "command": "node .claude/scripts/pre-agent-launch.js",
+            "timeout": 3000
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/post-agent-complete.js", 
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/validate-code.js",
+            "timeout": 10000
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/track-progress.js",
+            "timeout": 3000
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/workflow-checkpoint.js",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/session-init.js",
+            "timeout": 3000
+          }
+        ]
+      }
+    ]
+  }
+}

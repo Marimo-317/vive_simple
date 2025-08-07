@@ -1,0 +1,46 @@
+# Serena Project Configuration
+# This file configures Serena's behavior for the vive_simple project
+
+# Project metadata
+project:
+  name: vive_simple
+  description: "A simple project with Claude Code integration via GitHub Actions"
+  
+# File patterns to analyze (default patterns will be used if not specified)
+include_patterns:
+  - "*.md"
+  - "*.yml"
+  - "*.yaml" 
+  - "*.json"
+  - "*.js"
+  - "*.ts"
+  - "*.py"
+  - "*.go"
+  - "*.rs"
+  - "*.java"
+  - "*.c"
+  - "*.cpp"
+  - "*.h"
+
+# Directories to exclude from analysis
+exclude_patterns:
+  - ".git/*"
+  - "node_modules/*"
+  - ".env*"
+  - "*.log"
+  - ".serena/*"
+
+# Language server settings
+language_servers:
+  enabled: true
+  auto_start: true
+  
+# Semantic analysis settings
+semantic_analysis:
+  enabled: true
+  depth: moderate
+  
+# Context management
+context:
+  max_files: 100
+  max_size_mb: 10
